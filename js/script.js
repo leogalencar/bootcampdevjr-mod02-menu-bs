@@ -4,7 +4,7 @@ function calculateOrder() {
     var email = document.getElementById('email');
     var output = document.getElementById('order');
 
-    var dishes = document.getElementsByClassName('dish');
+    var dishes = document.getElementsByClassName('card');
 
     var total = 0;
 
@@ -21,8 +21,8 @@ function calculateOrder() {
 
         for (var i = 0; i < dishes.length; i++)
         {
-            var dish_name = dishes[i].querySelector('.dish-name').innerText.trim();
-            var price = parseFloat(dishes[i].querySelector('.dish-price > input[name="price"]').value);
+            var dish_name = dishes[i].querySelector('.card-title').innerText.trim();
+            var price = parseFloat(dishes[i].querySelector('.card-text > input[name="price"]').value);
             var quantity = parseFloat(dishes[i].querySelector(`input[id="${i + 1}"]`).value);
 
             if (quantity > 0)
@@ -33,13 +33,13 @@ function calculateOrder() {
             }
         }
 
-        output.innerHTML += `</ul> <p class="final-price"><strong>Preço final ${formatter.format(total)}</strong></p>`;
+        output.innerHTML += `</ul> <p><strong>Preço final ${formatter.format(total)}</strong></p>`;
     }
 }
 
 function verifyQuantity()
 {
-    var dishes = document.getElementsByClassName('dish');
+    var dishes = document.getElementsByClassName('card');
     var quantity = 0;
 
     for (var i = 0; i < dishes.length; i++)
@@ -63,32 +63,32 @@ function verifyDataEntry(name, number, email) {
 
     if (!name.value)
     {
-        document.querySelector('label[for="name"]').innerHTML = "Insira seu nome";
+        document.querySelector('label[id="labelNameError"]').innerHTML = "Insira seu nome";
         allowed = false;
     }
     else
     {
-        document.querySelector('label[for="name"]').innerHTML = "";
+        document.querySelector('label[id="labelNameError"]').innerHTML = "";
     }
 
     if (!number.value)
     {
-        document.querySelector('label[for="number"]').innerHTML = "Insira seu número";
+        document.querySelector('label[id="labelNumberError"]').innerHTML = "Insira seu número";
         allowed = false;
     }
     else
     {
-        document.querySelector('label[for="number"]').innerHTML = "";
+        document.querySelector('label[id="labelNumberError"]').innerHTML = "";
     }
 
     if (!email.value)
     {
-        document.querySelector('label[for="email"]').innerHTML = "Insira seu email";
+        document.querySelector('label[id="labelEmailError"]').innerHTML = "Insira seu email";
         allowed = false;
     }
     else
     {
-        document.querySelector('label[for="email"]').innerHTML = "";
+        document.querySelector('label[id="labelEmailError"]').innerHTML = "";
     }
 
     return allowed;
