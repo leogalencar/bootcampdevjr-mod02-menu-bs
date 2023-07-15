@@ -48,7 +48,7 @@
             <header class="text-center mt-1">
                 
                 <!-- Carousel -->
-                <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div id="carouselExampleCaptions" class="carousel slide carousel-fade d-none d-md-block" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
@@ -90,7 +90,7 @@
                     </button>
                 </div>
 
-                <div class="display-5 mt-1">
+                <div class="display-5 mt-4 mt-md-1">
                     Menu - Faça A Sua Escolha
                 </div>
             </header>
@@ -156,7 +156,7 @@
 
             <!-- Acompanhamentos -->
             <div class="text-center">
-                <div class="display-6 mt-4">
+                <div class="display-6 mt-5">
                     Acompanhamentos
                 </div>
                 <p>
@@ -213,31 +213,34 @@
                 </div>
             </div>
 
+            <!-- p-3 p-md-5 rounded shadow-lg mx-auto my-5 w-75 align-center -->
             <!-- Formulário Dados Pessoais -->
-            <div class="p-5 shadow-lg mx-auto my-5 w-75">
-                <div class="display-6 mb-3">
-                    Dados Pessoais
+            <div class="row my-5 justify-content-center">
+                <div class="col-10 rounded shadow-lg p-4 p-md-5">
+                    <div class="display-6 mb-3">
+                        Dados Pessoais
+                    </div>
+                    <form>
+                        <div class="col-12">
+                            <label for="name" class="form-label">Nome</label>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Digite o seu nome">
+                            <label for="name" id="labelNameError" class="text-danger mb-3"></label>
+                        </div>
+    
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <label for="number" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" name="number" id="number" placeholder="Telefone">
+                                <label for="number" id="labelNumberError" class="text-danger mb-3"></label>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <label for="email" id="labelEmailError" class="text-danger mb-3"></label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <form>
-                    <div class="col-12">
-                        <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Digite o seu nome">
-                        <label for="name" id="labelNameError" class="text-danger"></label>
-                    </div>
-
-                    <div class="row g-3">
-                        <div class="col">
-                            <label for="number" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" name="number" id="number" placeholder="Telefone">
-                            <label for="number" id="labelNumberError" class="text-danger"></label>
-                        </div>
-                        <div class="col">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                            <label for="email" id="labelEmailError" class="text-danger"></label>
-                        </div>
-                    </div>
-                </form>
             </div>
             <div class="col-12 text-center mb-5">
                 <button type="submit" class="btn btn-primary" onclick="calculateOrder()">Calcular</button>
