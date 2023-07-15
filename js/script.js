@@ -17,7 +17,10 @@ function calculateOrder() {
 
     if (verifyDataEntry(name, number, email) && verifyQuantity())
     {
-        output.innerHTML = `<p>Caro <strong>${name.value}</strong></p> <br> Seguem os dados do seu pedido. <br><br> O seu pedido é: <br> <ul>`;
+        $('#orderModal').modal('show');
+        document.getElementById('confirmButton').removeAttribute('hidden');
+
+        output.innerHTML = `<p>Caro <strong>${name.value}</strong></p> Seguem os dados do seu pedido. <br> O seu pedido é: <ul>`;
 
         for (var i = 0; i < dishes.length; i++)
         {
@@ -33,7 +36,7 @@ function calculateOrder() {
             }
         }
 
-        output.innerHTML += `</ul> <p><strong>Preço final ${formatter.format(total)}</strong></p>`;
+        output.innerHTML += `</ul> <h5 class="mt-5"><strong>Preço final ${formatter.format(total)}</strong></h5>`;
     }
 }
 
@@ -53,6 +56,9 @@ function verifyQuantity()
     }
     else
     {
+        $('#orderModal').modal('show');
+        document.getElementById('confirmButton').setAttribute('hidden', '');
+
         document.getElementById('order').innerHTML = '<p style="color: #ff0000;">Selecione pelo menos um produto para efetuar o pedido.</p>';
         return false;
     }
